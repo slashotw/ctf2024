@@ -1,0 +1,104 @@
+version: "3"
+
+services:
+  frontend_basic:
+    build:
+      context: frontend_basic
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: frontend_basic #容器名稱
+    ports:
+      - 8001:80 
+
+  idor:
+    build:
+      context: idor
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: idor #容器名稱
+    ports:
+      - 8002:80
+
+  path_traversal:
+    build:
+      context: path_traversal
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: path_traversal #容器名稱
+    ports:
+      - 8003:80
+
+  information_leakage:
+    build:
+      context: information_leakage
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: information_leakage #容器名稱
+    ports:
+      - 8004:80
+
+  lfi_1:
+    build:
+      context: lfi/threadstw1
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: threadstw1 #容器名稱
+    ports:
+      - 8005:80
+
+  lfi_2:
+    build:
+      context: lfi/threadstw2
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: threadstw2 #容器名稱
+    ports:
+      - 8006:80
+
+  xss:
+    build:
+      context: xss
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: xss #容器名稱
+    ports:
+      - 8007:80
+
+  sql_injection:
+    build:
+      context: sql_injection
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: sql_injection #容器名稱
+    ports:
+      - 8008:80
+
+
+  cmd_injection_1:
+    build:
+      context: cmd_injection/website_checker1
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: website_checker1 #容器名稱
+    ports:
+      - 8009:80
+  
+  cmd_injection_2:
+    build:
+      context: cmd_injection/website_checker2
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: website_checker2 #容器名稱
+    ports:
+      - 8010:80
+
+  ssti:
+    build:
+      context: ssti
+      dockerfile: Dockerfile #基於Dockerfile建立image
+    restart: always
+    container_name: trash_generator #容器名稱
+    ports:
+      - 8011:80
+
+  
