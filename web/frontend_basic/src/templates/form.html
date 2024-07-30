@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/keyboard-css@1.2.4/dist/css/main.min.css" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        .login-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+        .title {
+            color: #3273dc;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        .kbc-button {
+            width: 100%;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <form method="POST" action="/form" id="loginForm">
+            <button class="kbc-button kbc-button-lg" type="submit">
+                send me flag 🚩
+            </button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var form = document.getElementById("loginForm");
+            form.addEventListener("submit", function(event) {
+                event.preventDefault(); // 阻止表單提交
+
+                swal({
+                    title: "",
+                    text: "Flag攔截器: 不行ㄛ",
+                    closeOnClickOutside: false,
+                }).then(() => {
+                    // 在 swal 關閉後發送 POST 請求
+                    fetch('/form', {
+                        method: 'POST'
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log("Server response:", data);
+                        // 你可以在這裡處理服務器的響應
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
