@@ -1,4 +1,0 @@
-# Dirsearch started Sat Jul 27 07:44:03 2024 as: /Library/Frameworks/Python.framework/Versions/3.11/bin/dirsearch -u http://104.155.225.243:8001/
-
-200    59B   http://104.155.225.243:8001/abc
-200     3KB  http://104.155.225.243:8001/shop
