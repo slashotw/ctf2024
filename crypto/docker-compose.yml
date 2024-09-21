@@ -1,6 +1,15 @@
 version: "3"
 
 services:
+  classic:
+      build:
+        context: classic
+        dockerfile: Dockerfile #基於Dockerfile建立image
+      restart: always
+      container_name: classic #容器名稱
+      ports:
+        - 9000:80
+        
   pwntools:
     build:
       context: pwntools
